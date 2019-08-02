@@ -17,6 +17,8 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     
     override func viewDidLoad() {
+        tableView.dataSource = self
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
