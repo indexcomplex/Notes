@@ -8,8 +8,8 @@
 
 import UIKit
 import CoreData
-
-class ViewController: UIViewController, UITableViewDataSource {
+//we need to access the UITableViewDelagate protocol to manipulate the text in the bars
+class ViewController: UIViewController, UITableViewDataSource , UITableViewDelegate{
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -96,6 +96,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell()
+        cell.selectionStyle = .none
         let note = notes[indexPath.row]
         
          cell.textLabel?.text = note.body
@@ -104,8 +105,42 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         return cell
     }
-    
-    
+    // we can use bc UITableViewDelegate to make sure we selected the correct note to edit
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //makes sure we have the correct note
+        let note = notes[indexPath.row]
+        
+        
+        let alert = UIAlertController(title: "Edit Note", message: nil, preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.text = note.body
+        }
+        let updateAction = UIAlertAction(title: "Update", style: .default) { (_) in
+            guard
+                let updatedNoteBody = alert.textFields?.first?.text,
+                let appDelagate = UIApplication.shared.delegate as? AppDelegate
+                else {return}
+            
+            note.body = updatedNoteBody
+            appDelagate.saveContext()
+            
+            self.loadNotes()
+            
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alert.addAction(updateAction)
+        alert.addAction(cancelAction)
+        
+        // to fix Delay
+        DispatchQueue.main.async {
+            self.present(alert, animated: true)
+            
+        }
+        
+        
+    }
     
     
     
