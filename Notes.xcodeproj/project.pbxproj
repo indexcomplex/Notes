@@ -15,6 +15,7 @@
 		8D4C8D1D22F4A48400920FD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D4C8D1B22F4A48400920FD4 /* LaunchScreen.storyboard */; };
 		8D4C8D2622F4B96500920FD4 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4C8D2422F4B96500920FD4 /* Note+CoreDataClass.swift */; };
 		8D4C8D2722F4B96500920FD4 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4C8D2522F4B96500920FD4 /* Note+CoreDataProperties.swift */; };
+		8D4F7E9E23546FA00056EAAA /* NoteEditorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4F7E9D23546FA00056EAAA /* NoteEditorVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		8D4C8D1E22F4A48400920FD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D4C8D2422F4B96500920FD4 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8D4C8D2522F4B96500920FD4 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8D4F7E9D23546FA00056EAAA /* NoteEditorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditorVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				8D4C8D1B22F4A48400920FD4 /* LaunchScreen.storyboard */,
 				8D4C8D1E22F4A48400920FD4 /* Info.plist */,
 				8D4C8D1622F4A45500920FD4 /* Notes.xcdatamodeld */,
+				8D4F7E9D23546FA00056EAAA /* NoteEditorVC.swift */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D4C8D1222F4A45400920FD4 /* ViewController.swift in Sources */,
+				8D4F7E9E23546FA00056EAAA /* NoteEditorVC.swift in Sources */,
 				8D4C8D2622F4B96500920FD4 /* Note+CoreDataClass.swift in Sources */,
 				8D4C8D1822F4A45600920FD4 /* Notes.xcdatamodeld in Sources */,
 				8D4C8D1022F4A45300920FD4 /* AppDelegate.swift in Sources */,

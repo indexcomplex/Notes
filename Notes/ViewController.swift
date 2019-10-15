@@ -21,9 +21,18 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
         tableView.dataSource = self
         
         super.viewDidLoad()
-        loadNotes()
+       // loadNotes()
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadNotes()
+    }
+        
+        
+    
+    
 
     func loadNotes() {
         
@@ -54,38 +63,41 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
     
     @IBAction func didTapAdd(_ sender: Any) {
         
-        let alert = UIAlertController(title: "Add Message", message: nil, preferredStyle: .alert)
-        alert.addTextField()
+    
         
-        let saveAction = UIAlertAction(title: "Save", style: .default) { (_) in
-            
-            //considering all the optionals we have to unwrap with guard
-            guard
-                let noteBody = alert.textFields?.first?.text,
-                let appDelagate = UIApplication.shared.delegate as? AppDelegate
-                else {return}
-            
-            //we hve to access AppDelagate we have to do some unwrapping
-            
-            let context = appDelagate.persistentContainer.viewContext
-            
-            // this creates note
-            let newNote = Note(context: context)
-            newNote.body = noteBody // setting a string .body to the string of text from noteBody
-            
-            
-            appDelagate.saveContext()
-        
-            //bc in closure we must referece self
-            // notes.append(newNote)
-           self.notes.append(newNote)
-           // we must also reload tableview dta
-            self.tableView.reloadData()
-        }
-        alert.addAction(saveAction)
-        present(alert, animated: true)
+        performSegue(withIdentifier: "segue.Main.notesListToNoteEditor", sender: nil)
         
         
+//        let alert = UIAlertController(title: "Add Message", message: nil, preferredStyle: .alert)
+//        alert.addTextField()
+//
+//        let saveAction = UIAlertAction(title: "Save", style: .default) { (_) in
+//
+//            //considering all the optionals we have to unwrap with guard
+//            guard
+//                let noteBody = alert.textFields?.first?.text,
+//                let appDelagate = UIApplication.shared.delegate as? AppDelegate
+//                else {return}
+//
+//            //we hve to access AppDelagate we have to do some unwrapping
+//
+//            let context = appDelagate.persistentContainer.viewContext
+//
+//            // this creates note
+//            let newNote = Note(context: context)
+//            newNote.body = noteBody // setting a string .body to the string of text from noteBody
+//
+//
+//            appDelagate.saveContext()
+//
+//            //bc in closure we must referece self
+//            // notes.append(newNote)
+//           self.notes.append(newNote)
+//           // we must also reload tableview dta
+//            self.tableView.reloadData()
+//        }
+//        alert.addAction(saveAction)
+//        present(alert, animated: true)
     }
     
     
@@ -106,6 +118,7 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
         return cell
     }
     // we can use bc UITableViewDelegate to make sure we selected the correct note to edit
+    // uitableview delagate allows us to use this func
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //makes sure we have the correct note
         let note = notes[indexPath.row]

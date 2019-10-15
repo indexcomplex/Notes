@@ -45,11 +45,44 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="NLB-Ca-z2f" id="j37-gg-Yy2"/>
+                        <segue destination="D60-sg-PBu" kind="show" identifier="segue.Main.notesListToNoteEditor" id="gns-w5-IeE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="126.5625"/>
+        </scene>
+        <!--New Note-->
+        <scene sceneID="9m3-Se-TiE">
+            <objects>
+                <viewController title="New Note" id="D60-sg-PBu" customClass="NoteEditorVC" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="69z-8l-o9S">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="l8h-sN-ysR">
+                                <rect key="frame" x="20" y="140" width="374" height="756"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kRw-91-9XE" firstAttribute="trailing" secondItem="l8h-sN-ysR" secondAttribute="trailing" constant="20" id="D1D-SQ-sZk"/>
+                            <constraint firstAttribute="bottom" secondItem="l8h-sN-ysR" secondAttribute="bottom" id="RDZ-xu-Dwz"/>
+                            <constraint firstItem="l8h-sN-ysR" firstAttribute="leading" secondItem="kRw-91-9XE" secondAttribute="leading" constant="20" id="gim-1a-m2Z"/>
+                            <constraint firstItem="l8h-sN-ysR" firstAttribute="top" secondItem="kRw-91-9XE" secondAttribute="top" id="ubj-dX-cjR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kRw-91-9XE"/>
+                    </view>
+                    <connections>
+                        <outlet property="noteTV" destination="l8h-sN-ysR" id="lgR-DB-RWN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cRa-8p-rWT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1753.6231884057972" y="124.55357142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="E46-oe-wLL">
